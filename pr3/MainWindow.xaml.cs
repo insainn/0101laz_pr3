@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace pr3
 {
@@ -20,11 +21,28 @@ namespace pr3
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Classes.PersonInfo> Enemys = new List<Classes.PersonInfo>();
         public Classes.PersonInfo Player = new Classes.PersonInfo("Student", 100, 10, 1, 0, 0, 5);
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
             UserInfoPlayer();
+            // Добавляем данные о противниках в коллекцию
+            Enemys.Add(new Classes.PersonInfo("Название врага №1", 100, 20, 1, 15, 5, 20));
+            Enemys.Add(new Classes.PersonInfo("Название врага №2", 20, 5, 1, 5, 2, 5));
+            Enemys.Add(new Classes.PersonInfo("Название врага №3", 50, 3, 1, 10, 10, 15));
+
+            // Задаём настройки для таймера
+            dispatcherTimer.Tick += AttackPlayer;
+            // Задаём интервал с которым выполняется таймер
+            dispatcherTimer.Interval = new System.TimeSpan(0, 0, 10);
+            // Запускаем таймер
+            dispatcherTimer.Start();
+        }
+        private void AttackPlayer(object sender, System.EventArgs e)
+        {
+
         }
         /// <summary> Повышение уровня и обновление данных на UI
         public void UserInfoPlayer()

@@ -15,7 +15,6 @@ namespace pr3.Classes
         public int Glasses { get; set; }
         public int Money { get; set; }
         public float Damage { get; set; }
-    }
     public PersonInfo(string Name, int Health, int Armor, int Level, int Glasses, int Money, float Damage) {
             this.Name = Name;
             this.Health = Health;
