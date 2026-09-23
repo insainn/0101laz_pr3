@@ -87,6 +87,28 @@ namespace pr3
             playerGlasses.Content = "Опыт: " + Player.Glasses;
             playerMoney.Content = "Монеты: " + Player.Money;
         }
-
+        private void AttackEnemy(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // Наносим урон в процентном соотношении имеющейся брона
+            Enemy.Health -= Convert.ToInt32(Player.Damage * 100f / (100f - Enemy.Armor));
+            // Если жизненные показатели меньше или равны 0
+            if (Enemy.Health <= 0)
+            {
+                // Увеличиваем очки персонажа
+                Player.Glasses += Enemy.Glasses;
+                // Увеличиваем монеты персонажа
+                Player.Money += Enemy.Money;
+                // Обновляем информацию на UI
+                UserInfoPlayer();
+                // Выбираем нового противника
+                SelectEnemy();
+            }
+            else
+            {
+                // Обновляем UI персонажа
+                emptyHealth.Content = "Жизненные показатели: " + Enemy.Health;
+                emptyArmor.Content = "Броня: " + Enemy.Armor;
+            }
+        }
     }
 }
