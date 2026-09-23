@@ -30,9 +30,9 @@ namespace pr3
             InitializeComponent();
             UserInfoPlayer();
             // Добавляем данные о противниках в коллекцию
-            Enemys.Add(new Classes.PersonInfo("Название врага №1", 100, 20, 1, 15, 5, 20));
-            Enemys.Add(new Classes.PersonInfo("Название врага №2", 20, 5, 1, 5, 2, 5));
-            Enemys.Add(new Classes.PersonInfo("Название врага №3", 50, 3, 1, 10, 10, 15));
+            Enemys.Add(new Classes.PersonInfo("Большой монстр №1", 100, 20, 1, 15, 5, 20));
+            Enemys.Add(new Classes.PersonInfo("Большой монстр№2", 20, 5, 1, 5, 2, 5));
+            Enemys.Add(new Classes.PersonInfo("Большой монстр №3", 50, 3, 1, 10, 10, 15));
 
             // Задаём настройки для таймера
             dispatcherTimer.Tick += AttackPlayer;

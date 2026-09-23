@@ -19,7 +19,7 @@
             Background="#FFFDFDFD">
                 <Grid>
                     <Image Margin="10,10,10.2,185.4"
-                   Source="Image/1.png"/>
+                   Source="Image/4.png"/>
                     <Label Content="Основные характеристики персонажа:"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
