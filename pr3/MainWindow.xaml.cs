@@ -24,6 +24,7 @@ namespace pr3
         public List<Classes.PersonInfo> Enemys = new List<Classes.PersonInfo>();
         public Classes.PersonInfo Player = new Classes.PersonInfo("Student", 100, 10, 1, 0, 0, 5);
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        public Classes.PersonInfo Enemy;
         public MainWindow()
         {
             InitializeComponent();
@@ -39,10 +40,28 @@ namespace pr3
             dispatcherTimer.Interval = new System.TimeSpan(0, 0, 10);
             // Запускаем таймер
             dispatcherTimer.Start();
+            SelectEnemy();
+        }
+        public void SelectEnemy()
+        {
+            // Выбираем случайный индекс противника
+            int Id = new Random().Next(0, Enemys.Count);
+            // Создаём экземпляр с данными противника
+            Enemy = new Classes.PersonInfo(
+                Enemys[Id].Name,
+                Enemys[Id].Health,
+                Enemys[Id].Armor,
+                Enemys[Id].Level,
+                Enemys[Id].Glasses,
+                Enemys[Id].Money,
+                Enemys[Id].Damage);
         }
         private void AttackPlayer(object sender, System.EventArgs e)
         {
-
+            // Наносим урон в процентном соотношении имеющейся броня
+            Player.Health -= Convert.ToInt32(Enemy.Damage * 100f / (100f - Player.Armor));
+            // Обновляем характеристики персонажа
+            UserInfoPlayer();
         }
         /// <summary> Повышение уровня и обновление данных на UI
         public void UserInfoPlayer()
