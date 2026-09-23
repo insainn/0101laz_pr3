@@ -66,8 +66,6 @@ namespace pr3
         {
             // Наносим урон в процентном соотношении имеющейся броня
             Player.Health -= Convert.ToInt32(Enemy.Damage * 100f / (100f - Player.Armor));
-            // Обновляем характеристики персонажа
-            UserInfoPlayer();
             if (Player.Health <= 0)
             {
                 Player.Health = 0;
@@ -76,6 +74,11 @@ namespace pr3
                 MessageBox.Show("Игра окончена. Герой погиб....");
 
                 this.Close();
+            }
+            else
+            {
+                // Обновляем характеристики персонажа
+                UserInfoPlayer();
             }
         }
         ///Повышение уровня и обновление данных на UI
@@ -106,6 +109,8 @@ namespace pr3
         {
             // Наносим урон в процентном соотношении имеющейся брона
             Enemy.Health -= Convert.ToInt32(Player.Damage * 100f / (100f - Enemy.Armor));
+            int chance = new Random().Next(1, 101);
+
             // Если жизненные показатели меньше или равны 0
             if (Enemy.Health <= 0)
             {
