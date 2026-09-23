@@ -95,8 +95,7 @@ namespace pr3
             if (Enemy.Health <= 0)
             {
                 // Увеличиваем очки персонажа
-                Player.Glasses += Enemy.Glasses;
-                // Увеличиваем монеты персонажа
+                Player.Glasses += Convert.ToInt32(Enemy.Glasses * 1.3);                // Увеличиваем монеты персонажа
                 Player.Money += Enemy.Money;
                 // Обновляем информацию на UI
                 UserInfoPlayer();
