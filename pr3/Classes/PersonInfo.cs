@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace pr3.Classes
 {
-    internal class PersonInfo
+    public class PersonInfo
     {
+        public string Name { get; set; }
+        public int Health { get; set; }
+        public int Armor { get; set; }
+        public int Level { get; set; }
+        public int Glasses { get; set; }
+        public int Money { get; set; }
+        public float Damage { get; set; }
+    }
+    public PersonInfo(string Name, int Health, int Armor, int Level, int Glasses, int Money, float Damage) {
+            this.Name = Name;
+            this.Health = Health;
+            this.Armor = Armor;
+            this.Level = Level;
+            this.Glasses = Glasses;
+            this.Money = Money;
+            this.Damage = Damage;
+        }
     }
 }
