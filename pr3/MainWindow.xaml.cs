@@ -55,6 +55,12 @@ namespace pr3
                 Enemys[Id].Glasses,
                 Enemys[Id].Money,
                 Enemys[Id].Damage);
+            if (Id == 0)
+                emptyImage.Source = new BitmapImage(new Uri("Image/2.png", UriKind.Relative));
+            if (Id == 1)
+                emptyImage.Source = new BitmapImage(new Uri("Image/3.png", UriKind.Relative));
+            if (Id == 2)
+                emptyImage.Source = new BitmapImage(new Uri("Image/1.png", UriKind.Relative));
         }
         private void AttackPlayer(object sender, System.EventArgs e)
         {
