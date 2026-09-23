@@ -62,8 +62,17 @@ namespace pr3
             Player.Health -= Convert.ToInt32(Enemy.Damage * 100f / (100f - Player.Armor));
             // Обновляем характеристики персонажа
             UserInfoPlayer();
+            if (Player.Health <= 0)
+            {
+                Player.Health = 0;
+                // Обновляем характеристики персонажа
+                UserInfoPlayer();
+                MessageBox.Show("Игра окончена. Герой погиб....");
+
+                this.Close();
+            }
         }
-        /// <summary> Повышение уровня и обновление данных на UI
+        ///Повышение уровня и обновление данных на UI
         public void UserInfoPlayer()
         {
             // Если уровень персонажа больше чем 100 * уровень персонажа
